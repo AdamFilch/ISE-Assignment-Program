@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>7f6f20fb-3255-4310-a1cd-ec8415ce54f9</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>imageEnhancing.py</StartupFile>
+    <StartupFile>colourIdentification.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,9 @@
   <ItemGroup>
     <Compile Include="imageEnhancing.py" />
     <Compile Include="main.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="colourIdentification.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

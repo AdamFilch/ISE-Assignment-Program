@@ -1,4 +1,4 @@
-
+from colourIdentification import ColourIden
 
 
 
@@ -15,7 +15,27 @@ def main():
     print("5. Object Manipulation")
 
     print("Type your choice here:\n\n ")
+    choice = int(input())
+    while choice > 6:
+        print("Type your choice here:\n\n ")
+        choice = int(input())
+    print(choice)
 
-    return;
+    if choice == 1:
+        print("Image Enhancement program")
+    elif choice == 2:
+        print("Colour Identification")
+        ColourIden()
+    elif choice == 3:
+        print("Shape Identification")
+    elif choice == 4:
+        print("Object Identification")
+    elif choice == 5:
+        print("Object Manipulation")
+
+    main()
+
+
+    return
 
 main()
