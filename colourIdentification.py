@@ -1,14 +1,15 @@
 import cv2
 import numpy as np
+from skimage.filters import threshold_otsu
 
 
 # Resource: https://www.geeksforgeeks.org/color-identification-in-images-using-python-opencv/
 
-def kMean():
+img = cv2.imread("block.jpg")
+image = cv2.resize(img, (700, 600))
+orig = image
 
-    img = cv2.imread("waterbottle.jpg")
-    image = cv2.resize(img, (700, 600))
-    orig = image
+def kMean():
 
     image = np.float32(image)
 
@@ -28,6 +29,25 @@ def kMean():
 
     return
 
-def 
 
-kMean()
+# Source : https://machinelearningknowledge.ai/image-segmentation-in-python-opencv/ 
+
+def colourMask():
+
+
+    rgb_img = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    hsv_img = cv2.cvtColor(rgb_img, cv2.COLOR_RGB2HSV)
+
+    light_blue = (90, 70, 50)
+    dark_blue = (128, 255, 255)
+
+    mask = cv2.inRange(hsv_img, light_blue, dark_blue)
+
+    result = cv2.bitwise_and(image, image, mask=mask)
+    cv2.imshow("result", result)
+    cv2.waitKey(0)
+
+
+    return
+
+colourMask()
