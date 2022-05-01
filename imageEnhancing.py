@@ -11,7 +11,8 @@ def menu():
     print("2. Sharpened Image")
     print("3. Smoothed Image")
     print("4. Edge Detection")
-    print("5. Exit")
+    print("5. Noise Reduction")
+    print("6. Exit")
     print(": ")
 
 menu()
@@ -39,11 +40,17 @@ elif(choice == 4):
     b = cv2.cvtColor(a, cv2.COLOR_BGR2GRAY)
     img_blur = cv2.GaussianBlur(b, (3,3), 0) ## Blur the image for better edge detection
     edges = cv2.Canny(image=img_blur, threshold1=100, threshold2=200)
-    cv2.imshow("Objcet - Original", a)
+    cv2.imshow("Object - Original", a)
     cv2.imshow("Object - Edge Detection",edges)
 
 elif(choice == 5):
-    print("Exit")
+    lol = cv2.imread("noiseCard.png")
+    noised = cv2.fastNlMeansDenoisingColored(lol,None,30,20,5,10)
+    cv2.imshow("Object - Noise", lol)
+    cv2.imshow("Object - Noise Reduced", noised)
+
+elif(choice == 6):
+    print("waiting for adam for exit file.")
 
 else:
     print("Wrong input number! Try Again!")
